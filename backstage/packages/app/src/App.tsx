@@ -39,8 +39,9 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
-
-
+import { myTheme } from './themes/myTheme.ts';
+import LightIcon from '@material-ui/icons/WbSunny';
+import { UnifiedThemeProvider } from '@backstage/theme';
 
 const app = createApp({
   apis,
@@ -78,6 +79,15 @@ const app = createApp({
       />
     ),
   },
+  themes: [{
+    id: 'my-theme',
+    title: 'My Theme',
+    variant: 'light',
+    icon: <LightIcon />,
+    Provider: ({ children }) => (
+      <UnifiedThemeProvider theme={myTheme} children={children} />
+    ),
+  }],
 });
 
 const routes = (
