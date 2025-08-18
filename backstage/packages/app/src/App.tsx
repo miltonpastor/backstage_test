@@ -38,6 +38,7 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 
 
 
@@ -113,6 +114,10 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route
+      path="/tech-radar"
+      element={<TechRadarPage width={1500} height={800} />}
+    />
   </FlatRoutes>
 );
 
